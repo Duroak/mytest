@@ -1,0 +1,42 @@
+#!/bin/python
+
+from __future__ import print_function
+from random import randint
+
+player = raw_input('Fire (f), Earth (e), Water (w)? ')
+print(player, 'vs', end=' ')
+
+chosen = randint(1,3)
+
+if chosen == 1:
+    computer = 'f'
+
+elif chosen == 2:
+    computer = 'e'
+
+else:
+    computer = 'w'
+
+print(computer)
+
+if player == computer:
+    print("Draw!")
+
+elif player == 'f' and computer == 'e':
+    print('player wins!')
+
+elif player == 'f' and computer == 'w':
+    print('computer wins!')
+
+elif player == 'e' and computer == 'w':
+    print('player wins!')
+
+elif player == 'e' and computer == 'f':
+    print('computer wins!')
+
+elif player == 'w' and computer == 'f':
+    print('player wins!')
+
+elif player == 'w' and computer == 'e':
+    print('computer wins!')
+
