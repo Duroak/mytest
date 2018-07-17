@@ -56,7 +56,7 @@ two.goto(-160, 30)
 
 three = Turtle()
 three.shape('turtle')
-three.color('rd')
+three.color('red')
 three.penup()
 three.goto(-160, -10)
 
@@ -68,8 +68,8 @@ four.goto(-160, -50)
 
 five = Turtle()
 five.shape('turtle')
-four.color('#12ED02')
-four.penup()
+five.color('#12ED02')
+five.penup()
 five.goto(-160,-90)
 
 for turn in range(93):
