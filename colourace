@@ -22,8 +22,8 @@ write('Watch my turtles race', font=style, align='center')
 
 goto(0,130)
 color(colour['sky blue'])
-style2=('Arial', 15, 'bold')
-write('who do you think will win???', font=style2, align='center')
+styleII=('Arial', 15, 'bold')
+write('who do you think will win???', font=styleII, align='center')
 
 color(colour['periwinkle'])
 speed(100)
