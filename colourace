@@ -1,0 +1,80 @@
+#!/bin/python
+
+from turtle import *
+from random import randint
+
+screen = Screen()
+screen.setup(400,400)
+screen.bgcolor('#57887F')
+
+colour={
+    'peachy': '#F3BD81',
+    'periwinkle': '#CBBFD3',
+    'sky blue': '#14F6FA'
+}
+
+hideturtle()
+penup()
+goto(0,160)
+color(colour['peachy'])
+style = ('Serif', 30, 'bold')
+write('Watch my turtles race', font=style, align='center')
+
+goto(0,130)
+color(colour['sky blue'])
+style2=('Arial', 15, 'bold')
+write('who do you think will win???', font=style2, align='center')
+
+color(colour['periwinkle'])
+speed(100)
+penup
+goto(-140, 100)
+
+for step in range(15):
+    write(step, align='center')
+    right(90)
+    penup()
+    forward(10)
+    pendown()
+    forward(200)
+    penup()
+    backward(210)
+    left(90)
+    forward(20)
+
+one = Turtle()
+one.shape('turtle')
+one.color('#A6FBEA')
+one.penup()
+one.goto(-160,70)
+
+two = Turtle()
+two.shape('turtle')
+two.color('#FC3BF5')
+two.penup()
+two.goto(-160, 30)
+
+three = Turtle()
+three.shape('turtle')
+three.color('rd')
+three.penup()
+three.goto(-160, -10)
+
+four = Turtle()
+four.shape('turtle')
+four.color('orange')
+four.penup()
+four.goto(-160, -50)
+
+five = Turtle()
+five.shape('turtle')
+four.color('#12ED02')
+four.penup()
+five.goto(-160,-90)
+
+for turn in range(93):
+    one.forward(randint(1,5))
+    two.forward(randint(1,5))
+    three.forward(randint(1,5))
+    four.forward(randint(1,5))
+    five.forward(randint(1,5))
