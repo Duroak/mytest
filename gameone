@@ -2,6 +2,8 @@
 
 from random import randint
 
+print('Fire, Earth, and Water\n\nRules:\nFire > Earth \nWater > Fire \nEarth > Water')
+
 player = raw_input('Fire (f), Earth (e), Water (w)? ')
 print(player, 'vs', end=' ')
 
@@ -38,4 +40,3 @@ elif player == 'w' and computer == 'f':
 
 elif player == 'w' and computer == 'e':
     print('computer wins!')
-
