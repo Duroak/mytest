@@ -1,0 +1,52 @@
+#!/bin/python3
+
+#To test code go https://trinket.io/library/folder/mytest
+
+from random import choice
+from turtle import *
+
+screen = Screen()
+screen.bgcolor('white')
+penup()
+hideturtle()
+
+characters = {}
+
+file = open('cards.txt', 'r') 
+
+for line in file.read().splitlines():
+  name, attack, defence, intelligence, image = line.split(', ')
+  characters[name] = [attack, defence, intelligence, image]
+  screen.register_shape(image)
+
+file.close()
+
+while True:
+  
+  character = input('Choose a character: ')
+  
+  if character == "random": 
+    character = choice(list(characters.keys()))
+    print(character)
+  
+  if character in characters:
+    stats = characters[character]
+    style = ('Ariel', 14, 'bold')
+    clear()
+    goto(0, 100)
+    shape(stats[3])
+    setheading(90)
+    stamp()
+    setheading(-90)
+    forward(115)
+    write('Name: ' + character, font=style, align='center')
+    forward(25)
+    write('attack: ' + stats[0], font=style, align='center')
+    forward(25)
+    write('defence: ' + stats[1], font=style, align='center')
+    forward(25)
+    write('Intelligence: ' + stats[1], font=style, align='center')
+  
+  else:
+    print('character doesn\'t exist')
+
