@@ -1,18 +1,55 @@
 #!/bin/python3
 
-#To test code go https://trinket.io/library/folder/mytest
+#To test code go https://duroak_1688.trinket.io/sites/tcards_py
 
-from random import choice
+from random import *
 from turtle import *
 
 screen = Screen()
 screen.bgcolor('white')
 penup()
 hideturtle()
+speed(10)
 
+def bgcolor():
+  red = randint(20, 235)
+  green = randint(20, 235)
+  blue = randint(20, 235)
+  color(red, green, blue)
+  
+def border():
+  bgcolor()
+  length = 215
+  height = 300
+  begin_fill()
+  forward(length)
+  right(90)
+  forward(height)
+  right(90)
+  forward(length)
+  right(90)
+  forward(height)
+  right(90)
+  end_fill()
+  
+def picframe():
+  color('white')
+  length = 165
+  height = 155
+  begin_fill()
+  forward(length)
+  right(90)
+  forward(height)
+  right(90)
+  forward(length)
+  right(90)
+  forward(height)
+  right(90)
+  end_fill()
+  
 characters = {}
 
-file = open('cards.txt', 'r') 
+file = open('cards.txt', 'r')
 
 for line in file.read().splitlines():
   name, attack, defence, intelligence, image = line.split(', ')
@@ -23,30 +60,34 @@ file.close()
 
 while True:
   
-  character = input('Choose a character: ')
+  character = input('Choose a "Rick and Morty" character: ')
   
   if character == "random": 
     character = choice(list(characters.keys()))
     print(character)
-  
+    
   if character in characters:
     stats = characters[character]
-    style = ('Ariel', 14, 'bold')
+    #goto(-105, 210)
+    #border()
+    #goto(-80, 165)
+    #picframe()
     clear()
-    goto(0, 100)
+    color('black')
+    style = ('Comic Sans MS', 14, 'bold')
+    goto(-95, 180)
+    write(character, font=style, align='left')
+    goto(0, 90)
     shape(stats[3])
     setheading(90)
     stamp()
     setheading(-90)
-    forward(115)
-    write('Name: ' + character, font=style, align='center')
+    forward(100)
+    write('ATK: ' + stats[0], font=style, align='center')
     forward(25)
-    write('attack: ' + stats[0], font=style, align='center')
+    write('DEF: ' + stats[1], font=style, align='center')
     forward(25)
-    write('defence: ' + stats[1], font=style, align='center')
-    forward(25)
-    write('Intelligence: ' + stats[1], font=style, align='center')
+    write('Intel: ' + stats[1], font=style, align='center')
   
   else:
     print('character doesn\'t exist')
-
