@@ -1,0 +1,149 @@
+#!/bin/python3
+
+import json
+import turtle
+import urllib.request
+
+colour = {
+  'peach': '#ECBE69',
+  'lime': '#82F451',
+  'blueberry': '#071E59',
+  'strawberry': '#FC020F',
+  'hotpink': '#E9057F',
+  'skyblue': '#A3D5D1',
+  'melon': '#E89416'
+  }
+
+url = 'http://api.open-notify.org/astros.json'
+response = urllib.request.urlopen(url)
+result = json.loads(response.read())
+
+print('# of people in space: ', result['number'])
+
+people = result['people']
+
+for p in people:
+  print(p['name'], 'in', p['craft'])
+
+url2 = 'http://api.open-notify.org/iss-now.json'
+response2 = urllib.request.urlopen(url2)
+result2 = json.loads(response2.read())
+
+location = result2['iss_position']
+lat = location['latitude']
+lon = location['longitude']
+print('latitude: ', lat)
+print('longitude: ', lon)
+
+screen = turtle.Screen()
+screen.setup(720, 360)
+screen.setworldcoordinates(-180, -90, 180, 90)
+screen.bgpic('map.jpg')
+
+screen.register_shape('iss.png')
+iss = turtle.Turtle()
+iss.shape('iss.png')
+iss.setheading(90)
+
+iss.penup()
+iss.goto(lon, lat)
+
+style = ('Arial', 4, 'bold')
+
+#Cheetah: Kaduna, Niger
+lat1 = 10.5105
+lon1 = 7.4165
+
+africa = turtle.Turtle()
+africa.penup()
+africa.color(colour['skyblue'])
+africa.goto(lon1, lat1)
+africa.dot(5)
+africa.write('Cheetah:', font=style, align='right')
+africa.goto(-5, 5)
+africa.write('Kaduna, Niger', font=style, align='center')
+africa.hideturtle()
+
+#magellanic penguin
+lat2 = -82.8628
+lon2 = -100
+
+antartica = turtle.Turtle()
+antartica.penup()
+antartica.color(colour['blueberry'])
+antartica.goto(lon2, lat2)
+antartica.dot(5)
+antartica.write('Antartica', font=style, align='left')
+antartica.goto(-88, -78)
+antartica.write('Penguin: ', font=style, align='center')
+antartica.hideturtle()
+
+#koala: queensland, australia
+lat3 = -20.9176
+lon3 = 142.7028
+
+australia = turtle.Turtle()
+australia.penup()
+australia.color(colour['lime'])
+australia.goto(lon3, lat3)
+australia.dot(5)
+australia.write('Queensland, Australia', font=style, align='right')
+australia.goto(115, -15)
+australia.write('Koala: ', font=style, align='center')
+australia.hideturtle()
+
+#wolverine: yellowknife, canada
+lat4 = 62.454
+lon4 = -114.3718
+
+namerica = turtle.Turtle()
+namerica.penup()
+namerica.color(colour['peach'])
+namerica.goto(lon4, lat4)
+namerica.dot(5)
+namerica.write('Yellowknife, Canada', font=style, align='right')
+namerica.goto(-140, 68)
+namerica.write('Wovlerine ', font=style, align='center')
+namerica.hideturtle()
+
+#jaguar: Macapa, brazil
+lat5 = 0.0356 
+lon5 = -51.0705
+
+samerica = turtle.Turtle()
+samerica.penup()
+samerica.color(colour['strawberry'])
+samerica.goto(lon5, lat5)
+samerica.dot(5)
+samerica.write('Macapa, Brazil', font=style, align='right')
+samerica.goto(-67, 6)
+samerica.write('Jaguar: ', font=style, align='center')
+samerica.hideturtle()
+
+#pangolin: luoyang, china
+lat6 = 34.6202
+lon6 = 112.4539 
+
+asia = turtle.Turtle()
+asia. penup()
+asia.color(colour['melon'])
+asia.goto(lon6, lat6)
+asia.dot(5)
+asia.write('Luoyang, China', font=style, align='left')
+asia.goto(133, 40)
+asia.write('Pangolin: ', font=style, align='center')
+asia.hideturtle()
+
+#barbary macaque, gibraltar
+lat7 = 36.1408
+lon7 = -5.3536
+
+europe = turtle.Turtle()
+europe.penup()
+europe.color(colour['hotpink'])
+europe.goto(lon7, lat7)
+europe.dot(5)
+europe.write('Gibraltar', font=style, align='right')
+europe.goto(-13, 42)
+europe.write('Barbary Macauque:', font=style, align='center')
+europe.hideturtle()
