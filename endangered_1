@@ -1,5 +1,7 @@
 #!/bin/python3
 
+#go to https://duroak_1688.trinket.io/sites/endangered_1
+
 import json
 import turtle
 import urllib.request
