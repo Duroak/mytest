@@ -1,0 +1,18 @@
+#!/bin/python3
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+key = int(input('Please enter a key number: ')) #you can use negative numbers to go in reverse
+newmessage = ''
+
+message = input('Please enter a message: ') #the message that is created
+
+for character in message:
+    if character in alphabet:
+        position = alphabet.find(character)
+        newposition = (position + key) % 26
+        newcharacter = alphabet[newposition]
+        newmessage += newcharacter
+    else:
+        newmessage += character
+
+print('The new message is: ', newmessage)
