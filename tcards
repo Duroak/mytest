@@ -2,6 +2,8 @@
 
 #To test code go to https://duroak_1688.trinket.io/sites/tcards_py
 
+#line 74, 75, 76, 77 has small issue currently being worked on
+
 from random import *
 from turtle import *
 
@@ -68,12 +70,12 @@ while True:
 
   if character in characters:
     stats = characters[character]
-    #goto(-105, 210)
-    #border()
+    clear()
+    goto(-105, 210)
+    # border()
     #goto(-80, 165)
     #picframe()
-    clear()
-    color('black')
+    #color('black')
     style = ('Comic Sans MS', 14, 'bold')
     goto(-95, 180)
     write(character, font=style, align='left')
