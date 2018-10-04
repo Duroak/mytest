@@ -1,0 +1,39 @@
+#!/bin/python3
+
+from random import choice
+from pygal
+
+#player.txt is has the team members
+players = []
+file = open('players.txt', 'r')
+players = file.read().splitlines()
+
+World_XI = []
+Classic_XI = []
+
+while len(players) > 0:
+    playerA = choice(players)
+    World_XI.append(playerA)
+    players.remove(playerA)
+
+    if players == []:
+        break
+
+    playerB = choice(players)
+    Classic_XI.append(playerB)
+    players.remove(playerB)
+
+print('World XI:', World_XI)
+print('Classic XI:', Classic_XI)
+print('players left:', players)
+
+piechart = pygal.Pie()
+piechart.title = 'Countries of players on teams'
+piechart.add('France', 3)
+piechart.add('Portugal', 1)
+piechart.add('Argentina', 3)
+piechart.add('Germany', 1)
+piechart.add('Spain', 1)
+piechart.add('Belgium', 2)
+piechart.add('Egypt', 1)
+piechart.render()
